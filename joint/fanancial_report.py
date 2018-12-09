@@ -17,6 +17,8 @@ df=finance.run_query(query(finance.STK_INCOME_STATEMENT).filter(finance.STK_INCO
 #试图将pub_date转换成datetime,结果发现它已经是了
 #df.index=df.pub_date.apply(lambda pub_date : datetime.strptime(pub_date, "%y-%m-%d"))
 
+df.index=df.pub_date
+
 #发现数据相同pub_date有不同值
 #找到相距的长度
 df['diff_end_start_date']=(df.end_date-df.start_date)
